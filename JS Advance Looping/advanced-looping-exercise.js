@@ -61,8 +61,18 @@ console.log("biggestNumberInArray2-array2", biggestNumberInArray2(array2))
 console.log("biggestNumberInArray2-array3", biggestNumberInArray2(array3))
 
 function biggestNumberInArray3(arr) {
-
+ let highest = 0
+ for (item of arr) {
+  if (highest < item) {
+    highest = item
+    }
+  }
+  return highest
 }
+
+console.log("biggestNumberInArray3-array1", biggestNumberInArray3(array))
+console.log("biggestNumberInArray3-array2", biggestNumberInArray3(array2))
+console.log("biggestNumberInArray3-array3", biggestNumberInArray3(array3))
 
 
 // Question #2:
@@ -74,5 +84,13 @@ amazonBasket = {
 }
 
 function checkBasket(basket, lookingFor) {
-
+  for (item in basket) {
+    if (item === lookingFor) {
+      return `${lookingFor} is in the basket`
+    }
+  }
+  return 'item does not exist in the basket'
 }
+
+console.log(checkBasket(amazonBasket,"floss"))
+console.log(checkBasket(amazonBasket,"milk"))
