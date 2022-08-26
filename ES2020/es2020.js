@@ -44,10 +44,25 @@ if (andrei_pokemon && andrei_pokemon.raichu && will_pokemon
         console.log('walk away...')
     }
 
+// andrei_pokemon && andrei_pokemon.raichu
+    // => andrei_pokemon?.raichu
+// will_pokemon && will_pokemon.pikachu && will_pokemon.pikachu.friend && will_pokemon.pikachu.friend.charizard
+    // => will_pokemon?.pikachu?.friend?.charizard
+
+if (andrei_pokemon?.raichu && will_pokemon?.pikachu?.friend?.charizard) {
+    console.log ('fight!')
+} else {
+    console.log('walk away...')
+}
+
 
 // Exercise 4: What do these each output?
-console.log(false ?? 'hellooo')
-console.log(null ?? 'hellooo')
-console.log(null || 'hellooo')
-console.log((false || null) ?? 'hellooo')
-console.log(null ?? (false || 'hellooo'))
+
+// The nullish coalescing operator (??) is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined,
+// and otherwise returns its left-hand side operand.
+
+console.log(false ?? 'hellooo') //false is not null/undefined => return false
+console.log(null ?? 'hellooo')  // left hand is null => return "helloo"
+console.log(null || 'hellooo')  // null unable to return true boolean => return "helloo"
+console.log((false || null) ?? 'hellooo') // false||null returns null => return "helloo"
+console.log(null ?? (false || 'hellooo')) // false||'hellooo' returns 'hellooo' => return "helloo"
