@@ -15,11 +15,11 @@ basket.forEach(item => {
   console.log(item);
 })
 
-for (item in detailedBasket) {
+for (item in detailedBasket) { //for in - iterates array/strings
   console.log(item);
 }
 
-for (item of basket) {
+for (item of basket) { //for of - enumerates objects
   console.log(item);
 }
 
@@ -32,8 +32,14 @@ const array = [-1,0,3,100, 99, 2, 99] // should return 100
 const array2 = ['a', 3, 4, 2] // should return 4
 const array3 = [] // should return 0
 
-function biggestNumberInArray(arr) {
-
+function biggestNumberInArray(arr) { // for loop
+  let highest = 0
+  for (let i=0; i=arr.length;i++) {
+    if (highest < arr[i]) {
+      highest=arr[i]
+    }
+  }
+  return highest
 }
 
 function biggestNumberInArray2(arr) {
