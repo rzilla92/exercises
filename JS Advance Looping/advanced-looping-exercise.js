@@ -34,7 +34,7 @@ const array3 = [] // should return 0
 
 function biggestNumberInArray(arr) { // for loop
   let highest = 0
-  for (let i=0; i=arr.length;i++) {
+  for (let i = 0; i < arr.length;i++) {
     if (highest < arr[i]) {
       highest=arr[i]
     }
@@ -42,9 +42,23 @@ function biggestNumberInArray(arr) { // for loop
   return highest
 }
 
-function biggestNumberInArray2(arr) {
+console.log("biggestNumberInArray-array1", biggestNumberInArray(array))
+console.log("biggestNumberInArray-array2", biggestNumberInArray(array2))
+console.log("biggestNumberInArray-array3", biggestNumberInArray(array3))
 
+function biggestNumberInArray2(arr) {
+  let highest = 0
+  arr.forEach(item => {
+    if (highest < item) {
+      highest = item
+    }
+  })
+  return highest
 }
+
+console.log("biggestNumberInArray2-array1", biggestNumberInArray2(array))
+console.log("biggestNumberInArray2-array2", biggestNumberInArray2(array2))
+console.log("biggestNumberInArray2-array3", biggestNumberInArray2(array3))
 
 function biggestNumberInArray3(arr) {
 
