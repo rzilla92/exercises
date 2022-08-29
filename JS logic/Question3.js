@@ -7,7 +7,7 @@ and if you enter RGB color format it returns HEX.
 
 /*
  Thought process
- 1. create both type of conversion first (W3 school provides a tutorial on this)
+ 1. create both type of conversion first (W3 school provides a tutorial on this https://www.w3docs.com/snippets/javascript/how-to-convert-rgb-to-hex-and-vice-versa.html)
  2. create another function to detect whether input is rgb/hex
  3. adjust conversion function to take in input after detection function
 */
