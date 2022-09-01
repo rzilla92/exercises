@@ -12,14 +12,18 @@ and if you enter RGB color format it returns HEX.
  3. adjust conversion function to take in input after detection function
 */
 
-let input = "#0044ff"
+const submit = document.getElementById("submit")
+const result = document.getElementById("result")
 
 // rgb to hex conversion function
 function rgbToHex(input) {
     input = input.substr(3).slice(1,-1).split(','); // converts rgb input into array
-    const r = +input[0] // unary plus operator (+) to convert a string into a floating point number.
-    const g = +input[1] // it needs to be number or the return will take it as a string
-    const b = +input[2]
+    // const r = +input[0] // unary plus operator (+) to convert a string into a floating point number.
+    // const g = +input[1] // it needs to be number or the return will take it as a string
+    // const b = +input[2]
+    const r = parseInt(input[0]) // convert string to number
+    const g = parseInt(input[1]) // it needs to be number or the return will take it as a string
+    const b = parseInt(input[2])
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
   }
 
@@ -42,8 +46,19 @@ function convertColor (input) {
  if(input.includes('#') === true) { //if input contains #, then hex conversion is used
     let hex = input
     return hexToRgb(hex)
- } else if(input.includes('rgb')===true) { // else if input includes "rgb", then rgb conversion is used
+ } else if(input.toLowerCase().includes('rgb')===true) { // else if input includes "rgb", then rgb conversion is used
     return rgbToHex(input)
  } 
  return "invalid color space!" // if input doesn't contain any of those, will return this string
 }
+
+submit.addEventListener('click', function (){
+  const input = document.getElementById("color").value
+  console.log(input)
+  let converted = convertColor(input)
+  console.log(converted)
+  if(typeof converted !== "string") {
+    result.innerHTML = `RGB(${converted.r}, ${converted.g}, ${converted.b})`
+  }
+  else {return result.innerHTML=converted}
+})
