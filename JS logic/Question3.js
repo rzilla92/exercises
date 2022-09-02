@@ -49,16 +49,19 @@ function convertColor (input) {
  } else if(input.toLowerCase().includes('rgb')===true) { // else if input includes "rgb", then rgb conversion is used
     return rgbToHex(input)
  } 
- return "invalid color space!" // if input doesn't contain any of those, will return this string
+ return "Invalid color space! Try Again!" // if input doesn't contain any of those, will return this string
 }
 
 submit.addEventListener('click', function (){
+  result.style.color = '#000000'
   const input = document.getElementById("color").value
-  console.log(input)
   let converted = convertColor(input)
-  console.log(converted)
   if(typeof converted !== "string") {
     result.innerHTML = `RGB(${converted.r}, ${converted.g}, ${converted.b})`
+    result.style.color = input
   }
-  else {return result.innerHTML=converted}
+  else {
+    result.innerHTML = converted
+    result.style.color = input
+  }
 })
